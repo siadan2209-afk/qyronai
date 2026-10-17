@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#090d16"><meta name="description" content="QYRON — Engineer Your Imagination. Temukan, buat, dan simpan prompt AI berkualitas.">
+<link rel="manifest" href="./manifest.json"><link rel="icon" href="./icons/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+<title>QYRON — Engineer Your Imagination</title>
+</head>
+<body>
+<div class="app-shell">
+
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="QYRON Home">
+    <img src="./logo1.png" alt="QYRON" class="brand-mark">
+    <span>
+      QYRON
+      <small>ENGINEER YOUR IMAGINATION</small>
+    </span>
+  </a>
+  <button class="pro-pill" id="proTop">✦ Go Pro</button>
+</header>
+<main>
+<section class="page active" id="home">
+<div class="hero"><div class="eyebrow"><span class="pulse"></span> YOUR AI CREATIVE SYSTEM</div><h1>Ideas are easy.<br><span>Make them extraordinary.</span></h1><p>Prompt yang tepat mengubah cara kamu menciptakan sesuatu.</p><button class="primary-btn" data-go="studio">Buat Prompt <span>↗</span></button><div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div></div>
+<div class="section-head"><div><span class="eyebrow">CURATED FOR YOU</span><h2>Jelajahi prompt</h2></div><button class="text-btn" data-go="discover">Lihat semua ↗</button></div>
+<div class="category-row" id="homeCategories"><button class="category selected" data-category="Semua">✦ Semua</button><button class="category" data-category="Gambar">◈ Gambar</button><button class="category" data-category="Menulis">✎ Menulis</button><button class="category" data-category="Coding">⌘ Coding</button><button class="category" data-category="Bisnis">↗ Bisnis</button></div>
+<div class="prompt-grid" id="homePrompts"></div>
+<div class="pro-banner"><div class="pro-symbol">✦</div><div><span class="eyebrow">QYRON PRO</span><h3>Your creativity, without limits.</h3><p>Buka prompt eksklusif dan fitur kreator.</p></div><button class="round-arrow" id="proBanner">↗</button></div>
+</section>
+<section class="page" id="discover"><div class="page-title"><span class="eyebrow">THE PROMPT UNIVERSE</span><h1>Discover<span>.</span></h1><p>Temukan inspirasi untuk ide berikutnya.</p></div><label class="searchbox"><span>⌕</span><input id="searchInput" placeholder="Cari prompt, ide, kategori..." autocomplete="off"><kbd>⌕</kbd></label><div class="category-row wrap" id="discoverCategories"><button class="category selected" data-category="Semua">Semua</button><button class="category" data-category="Gambar">Gambar</button><button class="category" data-category="Menulis">Menulis</button><button class="category" data-category="Coding">Coding</button><button class="category" data-category="Bisnis">Bisnis</button></div><div class="prompt-grid" id="discoverPrompts"></div></section>
+<section class="page" id="studio"><div class="page-title"><span class="eyebrow">PROMPT BUILDER</span><h1>Prompt <span>Studio.</span></h1><p>Rangkai ide jadi instruksi AI yang lebih tajam.</p></div><div class="studio-card"><label class="field-label" for="goal">Apa yang ingin kamu buat?</label><textarea id="goal" rows="3" placeholder="Contoh: poster promosi kopi lokal dengan gaya premium..."></textarea><div class="form-grid"><div><label class="field-label" for="kind">Jenis konten</label><select id="kind"><option>Gambar</option><option>Menulis</option><option>Coding</option><option>Bisnis</option><option>Video</option><option>Belajar</option></select></div><div><label class="field-label" for="language">Bahasa prompt</label><select id="language"><option value="id">Indonesia</option><option value="en">English</option></select></div><div><label class="field-label" for="style">Gaya</label><select id="style"><option>Premium dan profesional</option><option>Minimalis</option><option>Futuristik</option><option>Kreatif dan berani</option><option>Realistis dan detail</option></select></div><div><label class="field-label" for="detail">Tingkat detail</label><select id="detail"><option>Detail tinggi</option><option>Ringkas dan jelas</option><option>Sangat mendalam</option></select></div></div><button class="primary-btn full" id="generateBtn">✦ Generate Prompt</button><div class="result-wrap hidden" id="resultWrap"><div class="result-head"><span class="eyebrow">YOUR GENERATED PROMPT</span><button class="text-btn" id="copyResult">Salin ↗</button></div><textarea id="resultText" rows="8" readonly></textarea><div class="result-actions"><button class="secondary-btn" id="saveResult">♡ Simpan ke favorit</button><button class="secondary-btn" id="regenBtn">↻ Buat ulang</button></div></div></div><div class="tip-box"><span>✦</span><p><b>Pro tip</b><br>Jelaskan tujuan, audiens, gaya, dan hasil yang kamu inginkan agar prompt lebih terarah.</p></div></section>
+<section class="page" id="library"><div class="page-title"><span class="eyebrow">YOUR PERSONAL COLLECTION</span><h1>My <span>Library.</span></h1><p>Prompt favoritmu, tersimpan di perangkat ini.</p></div><div class="library-tabs"><button class="selected" data-lib="favorites">♡ Favorit</button><button data-lib="created">✦ Prompt buatan</button></div><div class="prompt-grid" id="libraryPrompts"></div><div class="empty-state hidden" id="emptyLibrary"><div>◇</div><h3>Belum ada koleksi</h3><p>Simpan prompt yang kamu suka untuk menemukannya lagi di sini.</p><button class="secondary-btn" data-go="discover">Jelajahi prompt</button></div></section>
+<section class="page" id="profile"><div class="page-title"><span class="eyebrow">YOUR QYRON ACCOUNT</span><h1>Creator <span>Space.</span></h1><p>Ruang untuk perjalanan kreatifmu.</p></div><div class="profile-card"><div class="avatar">Q</div><div><h2>Guest Creator</h2><p>Free Plan · Data tersimpan lokal</p></div><span class="plan-tag">FREE</span></div><div class="stats-grid"><div class="stat-card"><span>♡</span><strong id="favCount">0</strong><small>Favorit</small></div><div class="stat-card"><span>✦</span><strong id="createdCount">0</strong><small>Dibuat</small></div></div><div class="settings-list"><button id="exportData"><span>⇩</span><div><b>Ekspor koleksi</b><small>Unduh data prompt sebagai JSON</small></div><span>›</span></button><button id="clearData"><span>⌫</span><div><b>Hapus data lokal</b><small>Hapus favorit dan prompt buatan</small></div><span>›</span></button><button id="aboutBtn"><span>ⓘ</span><div><b>Tentang QYRON</b><small>Engineer Your Imagination</small></div><span>›</span></button></div><button class="primary-btn full" id="proProfile">✦ Upgrade ke QYRON Pro</button><p class="legal-note">QYRON adalah alat bantu penyusunan prompt. Hasil akhir bergantung pada platform AI yang kamu gunakan.</p></section>
+<section class="page" id="pro">
+  <button class="back-btn" data-go="home">← Kembali</button>
+
+  <div class="pro-hero">
+    <div class="pro-large">
+      <img src="./logo1.png" alt="QYRON Pro" class="pro-logo">
+    </div>
+
+    <span class="eyebrow">THE NEXT LEVEL</span>
+    <h1>Think bigger.<br><span>Create without limits.</span></h1>
+    <p>Upgrade pengalaman kreatifmu dengan QYRON Pro.</p>
+  </div>
+
+  <div class="pro-plans">
+    <div class="pricing-card">
+      <div class="pricing-top">
+        <span class="plan-tag pro-tag">QYRON PRO</span>
+        <span class="coming-tag">HARI INI</span>
+      </div>
+
+      <h2>More power for your ideas.</h2>
+
+      <ul>
+        <li>✓ Koleksi prompt Pro eksklusif</li>
+        <li>✓ Prompt builder tingkat lanjut</li>
+        <li>✓ Simpan koleksi lebih luas</li>
+        <li>✓ Pengalaman tanpa iklan (saat tersedia)</li>
+      </ul>
+
+      <div class="price-line">
+        <strong>Pro</strong>
+        <span>Rp37.000</span>
+      </div>
+
+      <button class="primary-btn full" id="notifyPro">Beli Paket</button>
+
+      <p class="legal-note">
+        Pembayaran dan verifikasi langganan belum diaktifkan pada versi starter ini.
+      </p>
+    </div>
+  </div>
+
+  <div class="ad-placeholder">
+    <span>ADVERTISEMENT</span>
+    <p>Slot iklan banner — aktifkan setelah memasukkan Ad Unit ID yang valid.</p>
+  </div>
+</section>
+</main>
+<nav class="bottom-nav"><button class="nav-item active" data-go="home"><span>⌂</span><small>Home</small></button><button class="nav-item" data-go="discover"><span>⌕</span><small>Discover</small></button><button class="nav-item create-nav" data-go="studio"><span>＋</span><small>Studio</small></button><button class="nav-item" data-go="library"><span>♡</span><small>Library</small></button><button class="nav-item" data-go="profile"><span>◉</span><small>Profile</small></button></nav>
+<div class="toast" id="toast" role="status"></div>
+<div class="loading-screen" id="loadingScreen" aria-live="polite" aria-hidden="true">
+  <div class="loading-mark">
+  <img src="./logo.png" alt="QYRON Logo" class="loading-logo">
+</div><h2 id="loadingTitle">Merangkai ide...</h2><p id="loadingMessage">Menyusun struktur prompt terbaik untukmu.</p><div class="loading-track"><span></span></div><div class="loading-percent" id="loadingPercent">PROCESSING <b>01</b> / 03</div></div>
+</div>
+<dialog id="promptDialog"><div class="dialog-top"><span class="eyebrow">PROMPT DETAILS</span><button class="icon-btn" id="closeDialog">×</button></div><h2 id="dialogTitle"></h2><p class="dialog-category" id="dialogCategory"></p><div class="dialog-prompt" id="dialogPrompt"></div><div class="dialog-actions"><button class="secondary-btn" id="dialogFavorite">♡ Favorit</button><button class="primary-btn" id="dialogCopy">Salin prompt</button></div></dialog>
+</div><script src="./app.js"></script></body></html>
